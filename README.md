@@ -32,7 +32,7 @@ and that TF code automatically runs on the GPU!
 
 1. Run the relevant parts of the script `run.py` on your environment, and saving the results as `results_<YOUR_ENV_NAME>.csv` in the last line of `run.py`.
 2. Download the resulting CSV file and save it in the root directory alongside the other `results_*.csv` files.
-3. Then run `plot_results.py`. See `results.png`. Adds another line graph of your results should be added to the above plot. 🥳
+3. Then run `plot_results.py`. See `results.png`. Another line graph of your results should be added to the above plot. 🥳
 
 <br>
 
