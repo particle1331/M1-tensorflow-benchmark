@@ -30,9 +30,44 @@ and that TF code automatically runs on the GPU!
 
 ## Extending the results 
 
-1. Run the relevant parts of the script `run.py` on your environment, and save the results as `results_<YOUR_ENV_NAME>.csv` by changing the last line of `run.py`.
+The code for running the benchmarks and consolidating the results in a plot is written so that it can easily incorporate results for new tests. 
+
+1. Run the following script in your environment:
+    ```python
+    import tensorflow as tf
+    import time
+    import pandas as pd
+    print(tf.__version__)
+    
+    # Get CIFAR10 data; do basic preprocessing
+    (X_train, y_train), (X_test, y_test) = tf.keras.datasets.cifar10.load_data()
+    X_train_scaled = X_train / 255.0
+    y_train_encoded = tf.keras.utils.to_categorical(y_train, num_classes=10, dtype='float32')
+
+    # Define model constructor
+    def get_model(depth):
+        model = tf.keras.Sequential()
+        model.add(tf.keras.layers.Flatten(input_shape=(32, 32, 3)))
+        for _ in range(depth):
+            model.add(tf.keras.layers.Dense(1024, activation='relu'))
+        model.add(tf.keras.layers.Dense(10, activation='sigmoid'))
+        model.compile(optimizer='SGD', loss='categorical_crossentropy', metrics=['accuracy'])
+        return model
+        
+    YOUR_ENV_NAME = # Your environment's name here.
+    network_depth = [5, 10, 15, 20]
+    results = { depth: {} for depth in network_depth }
+    for depth in network_depth:
+        default_start_time = time.time()
+        model = get_model(depth)
+        model.fit(X_train_scaled, y_train_encoded, epochs=3)
+        results[depth][YOUR_ENV_NAME] = time.time() - default_start_time
+
+    # Save results
+    pd.DataFrame(results).to_csv(f'results_{YOUR_ENV_NAME}.csv', index=True)
+    ```
 2. Download the resulting CSV file and save it in the root directory alongside the other `results_*.csv` files.
-3. Then run `plot_results.py`. See `results.png`. Another line graph of your results should be added to the above plot. 🥳
+3. Run `plot_results.py`. See `results.png`. Another line graph of your results should be added to the above plot. 🥳
 
 <br>
 
