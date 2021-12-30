@@ -67,7 +67,7 @@ The code for running the benchmarks and consolidating the results in a plot is w
     pd.DataFrame(results).to_csv(f'results_{YOUR_ENV_NAME}.csv', index=True)
     ```
 2. Download the resulting CSV file and save it in the root directory alongside the other `results_*.csv` files.
-3. Run `plot_results.py`. See `results.png`. Another line graph of your results should be added to the above plot. 🥳
+3. Run `plot_results.py`. Open `results.png`. Another line graph of your results should be added to the above plot. 🥳
 
 <br>
 
