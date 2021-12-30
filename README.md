@@ -81,4 +81,4 @@ The code for running the benchmarks and consolidating the results in a plot is w
 
 ## Contribute
 
-Please contribute by adding more tests with different architectures and dataset, or by running the same test on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome.
+Please contribute by adding more tests with different architectures and dataset, or by running the benchmarks on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome.
