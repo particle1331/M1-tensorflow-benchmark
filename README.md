@@ -9,11 +9,12 @@ compare this with free GPU services, so I also included Kaggle and Colab in the 
 
 <br>
 
-<img src=results_plot.png width="80%">
-
+<img src=results.png width="80%" style="display: block; 
+           margin-left: auto;
+           margin-right: auto;">
 <br>
 
-The graph shows training time (y-axis) of an MLP with 5, 10, 15, 20 (x-axis) hidden layers of size 1024, and ReLU activation, trained on 50,000 CIFAR-10 images for 3 epochs.
+This plot shows training time (y-axis) of an MLP with 5, 10, 15, 20 (x-axis) hidden layers of size 1024, and ReLU activation, trained on 50,000 CIFAR-10 images for 3 epochs.
 
 
 The M1 looks comparable to a K80 which is nice if you always get locked out of Colab (like I do). But temps were worrying (~65 °C) 
