@@ -9,9 +9,13 @@ compare this with free GPU services, so I also included Kaggle and Colab in the 
 
 <br>
 
-<img src=results.png width="80%" style="display: block; 
+<p align="center">
+    <img src=results.png width="80%" style="display: block; 
            margin-left: auto;
            margin-right: auto;">
+</p>
+
+
 <br>
 
 This plot shows training time (y-axis) of an MLP with 5, 10, 15, 20 (x-axis) hidden layers of size 1024, and ReLU activation, trained on 50,000 CIFAR-10 images for 3 epochs.
