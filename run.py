@@ -38,7 +38,7 @@ if __name__ == "__main__":
             model_gpu.fit(X_train_scaled, y_train_encoded, epochs=3)
             results[depth]['M1'] = time.time() - gpu_start_time
 
-        # Test with default env
+        # Test for code outside any context
         default_start_time = time.time()
         model_default = get_model(depth)
         model_default.fit(X_train_scaled, y_train_encoded, epochs=3)
