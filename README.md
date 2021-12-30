@@ -46,4 +46,4 @@ and that TF code automatically runs on the GPU!
 
 ## Contribute
 
-Please contribute by adding more tests with different architectures and dataset, or by running the same test on different environments, e.g. RTX cards.
+Please contribute by adding more tests with different architectures and dataset, or by running the same test on different environments, e.g. GTX or RTX cards.
