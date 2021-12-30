@@ -29,20 +29,20 @@ if __name__ == "__main__":
             cpu_start_time = time.time()
             model_cpu = get_model(depth)
             model_cpu.fit(X_train_scaled, y_train_encoded, epochs=3)
-            results[depth]['CPU'] = time.time() - cpu_start_time
+            results[depth]['M1 (CPU)'] = time.time() - cpu_start_time
 
         # Test with GPU
         with tf.device('/GPU:0'):
             gpu_start_time = time.time()
             model_gpu = get_model(depth)
             model_gpu.fit(X_train_scaled, y_train_encoded, epochs=3)
-            results[depth]['M1'] = time.time() - gpu_start_time
+            results[depth]['M1 (GPU)'] = time.time() - gpu_start_time
 
         # Test for code outside any context
         default_start_time = time.time()
         model_default = get_model(depth)
         model_default.fit(X_train_scaled, y_train_encoded, epochs=3)
-        results[depth]['Default'] = time.time() - default_start_time
+        results[depth]['M1 (Default)'] = time.time() - default_start_time
 
     # Save results
     pd.DataFrame(results).to_csv('results_local.csv', index=True)

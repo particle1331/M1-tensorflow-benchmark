@@ -3,9 +3,8 @@
 
 TensorFlow (v2.7.0) benchmark results on an M1 Macbook Air 2020 laptop (macOS Monterey v12.1). 
 
-I was initially testing if the GPU was installed correctly on my M1 
-and that code outside any context manager (`Default` in the plot) automatically runs on the GPU (code inside `with tf.device('/GPU:0')` context-manager, `GPU` in the plot). It would be interesting to 
-compare this with free GPU services, so I also included Kaggle and Colab in the tests. Also tested M1's CPU (`CPU` in the plot). 
+I was initially testing if TensorFlow was installed correctly so that code outside any context manager (`M1 (Default)` in the plot) automatically runs on the GPU (code inside `with tf.device('/GPU:0')` context-manager, `M1 (GPU)` in the plot). It would be interesting to 
+compare this with free GPU services, so I also included Kaggle and Colab in the tests. Also tested M1's CPU (`M1 (CPU)` in the plot). 
 
 <br>
 
