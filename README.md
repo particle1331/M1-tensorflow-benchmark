@@ -30,12 +30,12 @@ and that TF code automatically runs on the GPU!
 
 ## Extending the results 
 
-The code for running the benchmarks and consolidating the results in a plot is written so that it can easily incorporate results for new tests. 
+Adding new benchmark results to the above plot is easy:
 
 1. Run `python run.py <YOUR_ENV_NAME>`. 
 2. Run `plot_results.py`. Open `results.png`. A line graph of your results should be added to the above plot. 🎉
 
-For step 1, the name can be any short string. This will also be its label in the resulting plot. Make sure to wrap around `""` if there are spaces. The resulting CSV file should be alongside the other `results_*.csv` files for step 2 to work.
+The name in step 1 can be any short string. This will also be its label in the resulting plot. Make sure to wrap around `""` if there are spaces. The resulting CSV file should be alongside the other `results_*.csv` files for step 2 to work.
 
 <br>
 
