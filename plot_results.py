@@ -4,7 +4,7 @@ import pandas as pd
 import glob
 
 dfs = []
-for filename in glob.glob('results*.csv'):
+for filename in glob.glob('results/results*.csv'):
     dfs.append(pd.read_csv(filename, index_col=0))
 
 result_all = pd.concat(dfs)
