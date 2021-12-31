@@ -50,11 +50,7 @@ if __name__ == "__main__":
     elif args.mode == 'M1-gpu':
         with tf.device('/GPU:0'):
             run(args.YOUR_ENV_NAME)
-    
-    elif args.mode == 'M1-default':
-        with tf.device('/GPU:0'):
-            run(args.YOUR_ENV_NAME)
 
+    # Run MLP benchmark test
     else:
-        # Run benchmark test
         run(args.YOUR_ENV_NAME)
