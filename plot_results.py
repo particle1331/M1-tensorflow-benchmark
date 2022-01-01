@@ -4,11 +4,6 @@ import pandas as pd
 import glob
 
 
-benchmark_xlabels = {
-    "mlp": "Network depth",
-    "vgg": ""
-}
-
 benchmark_metadata = {
     "mlp": {
         "indices_desc": "Network depth",
@@ -18,7 +13,7 @@ benchmark_metadata = {
         """,
     },
     "vgg": {
-        "indices_desc": "",
+        "indices_desc": "VGG configurations",
         "architecture": """
             Training time of a VGG11/16/19 convolutional 
             network on 50,000 CIFAR-10 images for 3 epochs.
