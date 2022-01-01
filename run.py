@@ -7,7 +7,6 @@ from utils import get_benchmark, time_model
 
 def run(env_name: str, benchmark_name: str) -> dict:
     benchmark = get_benchmark(benchmark_name)
-    print(benchmark)
     results = {depth: {} for depth in benchmark.test_indices}
     for test_index in results.keys():
         model = benchmark.get_model(test_index)
