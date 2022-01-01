@@ -38,10 +38,6 @@ and that TF code automatically runs on the GPU!
 
 <br>
 
-Same pattern for deep convolutional neural networks.
-
-<br>
-
 ## Running the benchmarks on new environments
 Running the benchmarks is easy. After setting up your environment do:
 
