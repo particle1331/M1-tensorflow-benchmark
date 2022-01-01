@@ -76,3 +76,9 @@ class VGGBenchmark:
             metrics=['accuracy']
         )
         return model
+
+
+benchmarks = {
+    'mlp': MLPBenchmark(),
+    'vgg': VGGBenchmark(),
+}

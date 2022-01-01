@@ -3,6 +3,7 @@ import tensorflow as tf
 import pandas as pd
 import glob
 
+
 benchmark_xlabels = {
     "mlp": "Network depth",
     "vgg": ""
@@ -55,8 +56,14 @@ def plot_all_results(benchmark: str):
 
 if __name__ == "__main__":
     import argparse
+    from benchmarks import benchmarks
+
     parser = argparse.ArgumentParser()
     parser.add_argument("benchmark")
     args = parser.parse_args()
 
-    plot_all_results(args.benchmark)
+    try:
+        benchmarks[args.benchmark]
+        plot_all_results(args.benchmark)
+    except KeyError:
+        raise ValueError(f"Benchmark not found. Choose from: {list(benchmarks.keys())}")
