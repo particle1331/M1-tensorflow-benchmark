@@ -36,6 +36,9 @@ and that TF code automatically runs on the GPU!
            margin-right: auto;">
 </p>
 
+<br>
+
+Same pattern for deep convolutional neural networks.
 
 <br>
 
