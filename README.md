@@ -1,7 +1,7 @@
 # M1-tensorflow-benchmark
 
 
-I was initially testing if TensorFlow was installed correctly on my M1 such that code outside any context automatically runs on the GPU. Since we already have runtimes, it would be interesting to compare local results ($999 💰 + electricity) with those of free GPU services: Kaggle and Colab. 🚀
+I was initially testing if TensorFlow was installed correctly on my M1 such that code outside any context automatically runs on the GPU. Since we already have runtimes, it would be interesting to compare local results with those of free GPU services: Kaggle and Colab. 🚀
 
 <br>
 
@@ -40,7 +40,12 @@ Running the benchmarks is easy. After setting up your environment do:
 1. Run `python run.py <YOUR_ENV_NAME> <BENCHMARK_NAME>`. 
 2. Run `plot_results.py <BENCHMARK_NAME>`. 
 
-The name in Step 1 can be any short string. This will also be its label in the resulting plot. After Step 2, a line graph of your results should be added to the above plot in `plots/<BENCHMARK_NAME>_results.png` 🎉. See `M1.sh` for an example.
+Current available benchmark names:
+* `mlp`
+* `vgg`
+
+The environment name in Step 1 can be any short string. This will also be its label in the resulting plot. After Step 2, a line graph of your results should be added to the above plot in `plots/<BENCHMARK_NAME>_results.png` 🎉. See `M1.sh` for the script used to obtain the above plots.
+
 
 <br>
 
