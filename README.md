@@ -39,23 +39,19 @@ and that TF code automatically runs on the GPU!
 
 <br>
 
-## Contribute 
-
-Please contribute by adding more tests with different architectures and dataset, or by running the benchmarks on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome. 
-
-### Running the benchmarks on new environments
-Adding new benchmark results to the above plot is easy. After setting up your environment do:
+## Running the benchmarks on new environments
+Running the benchmarks is easy. After setting up your environment do:
 
 1. Run `python run.py <YOUR_ENV_NAME> <BENCHMARK_NAME>`. 
 2. Run `plot_results.py <BENCHMARK_NAME>`. 
 
-A line graph of your results should be added to the above plot in `plots/<BENCHMARK_NAME>_results.png` 🎉 For an example of this process, see `M1.sh`. 
-
-The name in step 1 can be any short string. This will also be its label in the resulting plot. Make sure to wrap around `""` names if there are spaces. The resulting CSV file should be alongside the other `results_*.csv` files for step 2 to work. 
+The name in step 1 can be any short string. This will also be its label in the resulting plot. Make sure to wrap around `""` names if there are spaces. After step 2, a line graph of your results should be added to the above plot in `plots/<BENCHMARK_NAME>_results.png` 🎉 For an example of this process, see `M1.sh`.
 
 <br>
 
-### Creating new benchmarks
+## Contribute
+Please contribute by adding more tests with different architectures and dataset, or by running the benchmarks on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome. 
+
 You can add a new benchmark by extending the `Benchmark` abstract class in `benchmarks.py` you just have to implement a `get_model` method and a `test_indices` attribute. The `get_model` method should return a network for each index in `test_indices`. 
 
 <br>
