@@ -48,7 +48,7 @@ def plot_all_results(benchmark: str):
     plt.ylabel("Training time (s)")
     plt.tight_layout()
     plt.title(f"""
-        TensorFlow {tf.__version__} Benchmark (Macbook Air M1, 2020).\nLower is better.
+        TensorFlow {tf.__version__} Benchmark (Macbook Air M1, 2020). Lower is better.
         """)
     plt.savefig(f"plots/{benchmark}_results.png", bbox_inches='tight')
 
