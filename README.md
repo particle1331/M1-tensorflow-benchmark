@@ -39,7 +39,9 @@ and that TF code automatically runs on the GPU!
 
 <br>
 
-## Extending the results 
+## Contribute 
+
+Please contribute by adding more tests with different architectures and dataset, or by running the benchmarks on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome. 
 
 Adding new benchmark results to the above plot is easy. After setting up your environment do:
 
@@ -59,9 +61,3 @@ You can add a new benchmark by extending the `Benchmark` abstract class in `benc
 - Google Colab's Tesla K80
 - Macbook Air 2020 M1 GPU (macOS Monterey v12.1)
 - Macbook Air 2020 M1 CPU (macOS Monterey v12.1)
-
-<br>
-
-## Contribute
-
-Please contribute by adding more tests with different architectures and dataset, or by running the benchmarks on different environments, e.g. GTX or RTX cards, M1 Max and M1 Pro are very much welcome.
