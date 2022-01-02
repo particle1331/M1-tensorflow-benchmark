@@ -58,7 +58,7 @@ You can also contribute by extending the `Benchmark` abstract class in `benchmar
 1. Define a `test_indices` attribute. This can be a sequence of indices corresponding to increasing network complexity. 
 2. Define a `get_model` method that returns a compiled model in Keras for each index in `test_indices`. 
 3. Add the new benchmark in the `benchmarks` dictionary at the bottom of the script. 
-4. Finally, update the metadata dictionary in `plot_results.py` so that plots are informative.
+4. Update the metadata dictionary in `plot_results.py` so that plots are informative.
 5. Update "Current available benchmark names:" in `README.md` with your new benchmark name.
 
 See existing implementations `benchmarks.VGGBenchmark` and `benchmarks.MLPBenchmark` for inspiration.
