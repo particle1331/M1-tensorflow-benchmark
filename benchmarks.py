@@ -37,8 +37,13 @@ class VGGBenchmark:
     def vgg_block(num_convs, num_channels):
         blk = tf.keras.models.Sequential()
         for _ in range(num_convs):
-            blk.add(tf.keras.layers.Conv2D(num_channels,kernel_size=3,
-                                        padding='same',activation='relu'))
+            blk.add(tf.keras.layers.Conv2D(
+                    num_channels,
+                    kernel_size=3,
+                    padding='same',
+                    activation='relu'
+                )
+            )
         blk.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
         return blk
 
