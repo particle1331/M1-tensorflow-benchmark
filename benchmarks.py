@@ -1,38 +1,69 @@
 import tensorflow as tf
+from pathlib import Path
+from tensorflow.keras.datasets import cifar10
 from abc import ABC, abstractmethod, abstractproperty
 
 
-# Define abstract class for benchmarks. The abstract class should have
-#   (1) A `test_indices` list which is the indices for each test
-#   (2) A `get_model` method which returns a Keras model for each test index.
 class Benchmark(ABC):
     @abstractproperty
-    def test_indices(self):
-        return NotImplemented
+    def index(self) -> list:
+        pass
+    
+    @abstractproperty
+    def description(self) -> str:
+        pass
+
+    @abstractproperty
+    def index_name(self) -> str:
+        pass
 
     @abstractmethod
-    def get_model(self):
+    def setup(self, index: int):
+        pass
+
+    @abstractmethod
+    def run(self):
         pass
 
 
-class MLPBenchmark:
-    test_indices = [5, 10, 15, 20]
+# Global variables for benchmarks 
+(X, y), _ = cifar10.load_data()
+X = X / 255.0
 
-    # Define deep MLP model constructors
-    def get_model(self, depth: int):
-        model = tf.keras.Sequential()
-        model.add(tf.keras.layers.Flatten(input_shape=(32, 32, 3)))
-        for _ in range(depth):
-            model.add(tf.keras.layers.Dense(1024, activation='relu'))
-        model.add(tf.keras.layers.Dense(10, activation='sigmoid'))
-        model.compile(optimizer='SGD', loss='categorical_crossentropy', metrics=['accuracy'])
-        return model
+
+class MLPBenchmark:
+    index = [5, 10, 15, 20]
+    index_name = "No. of hidden layers"
+    description = """
+        MLP training (1024 hidden layer width + ReLU, 50k 
+        CIFAR-10 images, 3 epochs on default Keras fit)
+    """
+
+    def setup(self, depth: int):
+        layers  = [tf.keras.layers.Flatten(input_shape=(32, 32, 3))] 
+        layers += [tf.keras.layers.Dense(1024, activation='relu') for _ in range(depth)]
+        layers += [tf.keras.layers.Dense(10, activation='sigmoid')]
+        
+        self.model = tf.keras.Sequential(layers)
+        self.model.compile(
+            optimizer='SGD', 
+            loss='sparse_categorical_crossentropy', 
+            metrics=['accuracy']
+        )
+
+    def run(self):
+        self.model.fit(X, y, epochs=3)
+
 
 
 class VGGBenchmark:
-    test_indices = ['VGG11', 'VGG16', 'VGG19']
+    index = ['VGG11', 'VGG16', 'VGG19']
+    index_name = ''
+    description = """
+        VGG training on 50k CIFAR-10 images for 3 
+        epochs using default Keras fit arguments.
+    """
 
-    # Define block constructor
     @staticmethod
     def vgg_block(num_convs, num_channels):
         blk = tf.keras.models.Sequential()
@@ -73,17 +104,29 @@ class VGGBenchmark:
         'VGG19': ((2, 64), (2, 128), (4, 256), (4, 512), (4, 512)),
     }
 
-    def get_model(self, test_index: str):
-        model = VGGBenchmark.vgg(self.conv_arch[test_index])
-        model.compile(
+    def setup(self, index: str):
+        self.model = VGGBenchmark.vgg(self.conv_arch[index])
+        self.model.compile(
             optimizer='SGD', 
             loss='categorical_crossentropy', 
             metrics=['accuracy']
         )
-        return model
+
+    def run(self):
+        self.model.fit(
+            X, tf.keras.utils.to_categorical(y, num_classes=10, dtype='float32'), 
+            epochs=3
+        )
 
 
+# Feel free to extend the collection of benchmarks!
 benchmarks = {
-    'mlp': MLPBenchmark(),
-    'vgg': VGGBenchmark(),
+    "mlp": MLPBenchmark(),
+    "vgg": VGGBenchmark(),
+    # ...
 }
+
+# Create directories for saving benchmarks
+Path("results").mkdir(exist_ok=True)
+for k in benchmarks.keys():
+    Path(f"results/{k}").mkdir(exist_ok=True)
