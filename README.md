@@ -1,7 +1,7 @@
 # M1-tensorflow-benchmark
 
 
-I was initially testing if TensorFlow was installed correctly on my M1 such that code outside any context automatically runs on the GPU. Since we already have runtimes, it would be interesting to compare local results with those of free GPU services: Kaggle and Colab. 🚀
+I was initially testing if TensorFlow was installed correctly on my M1 such that code automatically runs on the GPU (outside any context). Since we already have runtimes, it would be interesting to compare local results with those of free GPU services: Kaggle and Colab. 🚀
 
 <br>
 
