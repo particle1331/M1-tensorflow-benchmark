@@ -38,14 +38,15 @@ Running the benchmarks is easy. After setting up your environment run:
 
 ```
 python run.py <compute> <benchmark>
-# e.g. python run.py "Kaggle (P100)" mlp
+# ex: python run.py "Kaggle (P100)" mlp
 ```
 
 Current available benchmark names:
 * `mlp`
 * `vgg`
 
-This automatically updates the plot `plots/<benchmark>.png` which includes all previous results of the form `results/<benchmark>/<compute>.csv`.
+This saves a CSV file in `results/<benchmark>/<compute>.csv` containing the results
+of the benchmark and automatically updates the plot `plots/<benchmark>.png` which includes all previous results with the pattern `results/<benchmark>/*.csv`.
 
 <br>
 
