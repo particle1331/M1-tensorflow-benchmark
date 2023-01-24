@@ -46,7 +46,7 @@ Current available benchmark names:
 * `vgg`
 
 This saves a CSV file in `results/<benchmark>/<compute>.csv` containing the results
-of the benchmark and automatically updates the plot `plots/<benchmark>.png` which includes all previous results with the pattern `results/<benchmark>/*.csv`.
+of the benchmark and automatically updates the plot `plots/<benchmark>.png`. Note that the plot includes all existing results with the pattern `results/<benchmark>/*.csv`.
 
 <br>
 
