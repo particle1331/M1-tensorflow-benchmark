@@ -35,8 +35,8 @@ class MLPBenchmark:
     index = [5, 10, 15, 20]
     index_name = "No. of hidden layers"
     description = """
-        MLP training (1024 hidden layer width + ReLU, 50k 
-        CIFAR-10 images, 3 epochs on default Keras fit)
+        MLP (1024 hidden layer width + ReLU) training with 
+        Keras fit default args for 3 epochs on 50k CIFAR-10 images
     """
 
     def setup(self, depth: int):
@@ -55,13 +55,12 @@ class MLPBenchmark:
         self.model.fit(X, y, epochs=3)
 
 
-
 class VGGBenchmark:
     index = ['VGG11', 'VGG16', 'VGG19']
     index_name = ''
     description = """
-        VGG training on 50k CIFAR-10 images for 3 
-        epochs using default Keras fit arguments.
+        VGG training on 50k CIFAR-10 images 
+        with Keras fit default args for 3 epochs 
     """
 
     @staticmethod
@@ -108,15 +107,12 @@ class VGGBenchmark:
         self.model = VGGBenchmark.vgg(self.conv_arch[index])
         self.model.compile(
             optimizer='SGD', 
-            loss='categorical_crossentropy', 
+            loss='sparse_categorical_crossentropy', 
             metrics=['accuracy']
         )
 
     def run(self):
-        self.model.fit(
-            X, tf.keras.utils.to_categorical(y, num_classes=10, dtype='float32'), 
-            epochs=3
-        )
+        self.model.fit(X, y, epochs=3)
 
 
 # Feel free to extend the collection of benchmarks!
