@@ -52,9 +52,13 @@ of the benchmark and automatically updates the plot `plots/<benchmark>.png`. Not
 
 ## New benchmarks and results
 
-New benchmarks for different architectures and dataset or tasks can be easily created by extending the `Benchmark` abstract class in `benchmarks.py`. See existing implementations in that script for the MLP and VGG architectures. 
+New benchmarks for different architectures and dataset or tasks can be easily created by extending the `Benchmark` abstract class in `benchmarks.py`. See existing implementations in that script for the MLP and VGG architectures.
 
 Results for existing benchmarks can be updated by running benchmarks on different environments, e.g. new RTX cards, M1 Max and M1 Pro.
+
+```
+python run.py <new_compute> mlp
+```
 
 <br>
 
