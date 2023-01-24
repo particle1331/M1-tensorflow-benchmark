@@ -45,7 +45,7 @@ Current available benchmark names:
 * `mlp`
 * `vgg`
 
-This automatically updates the plot `plots/<benchmark>.png` which includes all previous results  `results/<benchmark>/<compute>.csv`.
+This automatically updates the plot `plots/<benchmark>.png` which includes all previous results of the form `results/<benchmark>/<compute>.csv`.
 
 <br>
 
