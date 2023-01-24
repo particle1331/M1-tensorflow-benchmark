@@ -10,7 +10,7 @@ from benchmarks import benchmarks
 
 def plot_results(task: str):
     plt.figure(figsize=(7, 6), dpi=200)
-    for fn in glob.glob(f'results/{task}/*.csv'):
+    for fn in sorted(glob.glob(f'results/{task}/*.csv')):
         df = pd.read_csv(fn)
         x = df.columns.tolist()
         y = df.iloc[0].tolist()
