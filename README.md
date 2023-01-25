@@ -37,7 +37,7 @@ Things are looking pretty bad for the M1. Not to mention temps were worrying (~9
 Running the benchmarks is easy. After setting up your environment run:
 
 ```
-python run.py <compute> <benchmark>
+python run.py <compute_env> <benchmark>
 # ex: python run.py "Kaggle (P100)" mlp
 ```
 
@@ -45,8 +45,7 @@ Current available benchmark names:
 * `mlp`
 * `vgg`
 
-This saves a CSV file in `results/<benchmark>/<compute>.csv` containing the results
-of the benchmark and automatically updates the plot `plots/<benchmark>.png`. Note that the plot includes all existing results with the pattern `results/<benchmark>/*.csv`.
+This saves a CSV file in `results/<benchmark>/<compute_env>.csv` containing the results of the benchmark and automatically updates the plot `plots/<benchmark>.png`. Note that the plot includes all existing results with the pattern `results/<benchmark>/*.csv`.
 
 <br>
 
@@ -54,10 +53,10 @@ of the benchmark and automatically updates the plot `plots/<benchmark>.png`. Not
 
 New benchmarks for different architectures and dataset or tasks can be easily created by extending the `Benchmark` abstract class in `benchmarks.py`. See existing implementations in that script for the MLP and VGG architectures.
 
-Results for existing benchmarks can be updated by running benchmarks on different environments, e.g. new RTX cards, M1 Max, different TF versions, etc.
+Results for existing benchmarks can be updated by running benchmarks on different environments (e.g. RTX cards, M1 Max, different TF versions):
 
 ```
-python run.py <new_compute> mlp
+python run.py <new_compute_env> mlp
 ```
 
 <br>
