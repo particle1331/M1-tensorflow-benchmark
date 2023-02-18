@@ -1,7 +1,11 @@
 # M1-tensorflow-benchmark
 
 
-I was initially testing if TensorFlow was installed correctly on my M1 such that code automatically runs on the GPU outside any context manager. Since we already have runtimes, it would be interesting to compare local results with those of free GPUs in Kaggle. 🚀
+I was initially testing if TensorFlow was installed correctly on my M1 such that code automatically runs on the GPU outside any context manager. Since we already have runtimes, it would be interesting to compare local results with those of free GPUs in Kaggle.
+
+<br>
+
+**TLDR**: Things look pretty bad for the M1. Not to mention temps were worrying (~97 °C 🌡). This laptop is fanless after all.
 
 <br>
 
@@ -15,9 +19,6 @@ I was initially testing if TensorFlow was installed correctly on my M1 such that
            margin-right: auto;">
 </p>
 
-<br>
-
-Things are looking pretty bad for the M1. Not to mention temps were worrying (~97 °C 🌡). This laptop is fanless after all. 
 
 <br>
 
